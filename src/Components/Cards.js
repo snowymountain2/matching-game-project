@@ -1,26 +1,31 @@
 import React from 'react';
 import Card from './Card';
+import { Button } from '@material-ui/core';
 
 const allCards = {
-    width: '500px',
     display: 'flex',
+    flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-evenly',
-    backgroundColor: 'black'
+    justifyContent: 'center',
+    backgroundColor: 'gray'
 };
 
 const Cards = () => {
     return (
-        <div style={allCards}>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-        </div>
+        <>
+            <div style={allCards}>
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+            </div>
+            <div style={allCards}>
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+            </div>
+        </>
     );
 };
 

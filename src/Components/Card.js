@@ -1,7 +1,7 @@
 import React from 'react';
 
 const singleCard = {
-    backgroundColor: 'red',
+    backgroundColor: 'yellow',
     margin: '5px 5px 5px 5px',
     height: '50px',
     width: '50px'
