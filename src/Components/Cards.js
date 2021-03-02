@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './Card';
-import { Button } from '@material-ui/core';
+import AddAlertIcon from '@material-ui/icons/AddAlert';
+
 
 const allCards = {
     display: 'flex',
@@ -10,7 +11,9 @@ const allCards = {
     backgroundColor: 'gray'
 };
 
-const Cards = () => {
+
+
+const Cards = ({ thegameMode }) => {
     return (
         <>
             <div style={allCards}>
@@ -18,12 +21,14 @@ const Cards = () => {
                 <Card />
                 <Card />
                 <Card />
+                {console.log(thegameMode)}
             </div>
             <div style={allCards}>
                 <Card />
                 <Card />
                 <Card />
                 <Card />
+                <AddAlertIcon />
             </div>
         </>
     );
