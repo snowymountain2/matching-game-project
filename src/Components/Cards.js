@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import AddAlertIcon from '@material-ui/icons/AddAlert';
 import { shuffle } from '../Helper';
+import cardList from '../cardslist';
 
 const easyNumbers = [1, 2, 3, 4, 4, 3, 2, 1];
 const mediumNumbers = [1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1];
@@ -20,29 +21,35 @@ const Cards = ({ thegameMode }) => {
         marginRight: "8vw"
     };
 
-    const [cardvalues, setCardValues] = useState(shuffle(easyNumbers));
+    const [cardvalues, setCardValues] = useState(shuffle(cardList.easy));
 
     useEffect(() => {
-        console.log(cardvalues);
         console.log(thegameMode);
 
         if (thegameMode === "easy") {
-            setCardValues(shuffle(easyNumbers));
+            setCardValues(shuffle(cardList.easy));
         }
         else if (thegameMode === "medium") {
-            setCardValues(shuffle(mediumNumbers));
+            setCardValues(shuffle(cardList.medium));
         }
         else {
-            setCardValues(shuffle(hardNumbers));
+            setCardValues(shuffle(cardList.hard));
         }
     }, [thegameMode]);
 
     return (
         <>
             <div style={allCards}>
-                {cardvalues.map((num, index) => {
-                    return <Card id={index} number={num} />
+
+
+                {console.log(cardList.easy[0].number)}
+                {console.log(cardvalues)}
+
+                {cardvalues.map((card, index) => {
+                    return <Card id={card.number} icon={card.icon} />
                 })}
+
+
             </div>
         </>
     );
