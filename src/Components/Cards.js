@@ -3,17 +3,23 @@ import Card from './Card';
 import AddAlertIcon from '@material-ui/icons/AddAlert';
 
 
-const allCards = {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    backgroundColor: 'gray'
-};
-
+const someNumbers = [1, 2, 3, 4, 5, 6, 7, 8];
 
 
 const Cards = ({ thegameMode }) => {
+
+    const allCards = {
+        display: 'flex',
+        margin: 'auto',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        backgroundColor: 'gray',
+        marginLeft: "8vw",
+        marginRight: "8vw"
+
+    };
+
     return (
         <>
             <div style={allCards}>
@@ -22,8 +28,6 @@ const Cards = ({ thegameMode }) => {
                 <Card />
                 <Card />
                 {console.log(thegameMode)}
-            </div>
-            <div style={allCards}>
                 <Card />
                 <Card />
                 <Card />
