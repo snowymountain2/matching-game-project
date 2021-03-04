@@ -14,7 +14,6 @@ function App() {
   return (
     <div className="App">
       <h1> memory game </h1>
-      {console.log(shuffle(nums))}
 
       <Mode thegameMode={gameMode} setGameMode={setGameMode} />
 

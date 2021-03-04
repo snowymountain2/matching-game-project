@@ -7,10 +7,10 @@ const singleCard = {
     width: '100px'
 };
 
-const Card = () => {
+const Card = ({ number }) => {
     return (
         <div style={singleCard} className="single-card">
-
+            {number}
         </div>
     );
 };
