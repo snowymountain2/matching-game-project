@@ -1,4 +1,11 @@
 import AddAlertIcon from '@material-ui/icons/AddAlert';
+import FingerprintIcon from '@material-ui/icons/Fingerprint';
+import AcUnitIcon from '@material-ui/icons/AcUnit';
+import AttachmentIcon from '@material-ui/icons/Attachment';
+import AudiotrackIcon from '@material-ui/icons/Audiotrack';
+import BeachAccessIcon from '@material-ui/icons/BeachAccess';
+import BrightnessLowIcon from '@material-ui/icons/BrightnessLow';
+import CakeIcon from '@material-ui/icons/Cake';
 
 const picturesize = 80;
 const thetopMargin = '27px';
@@ -7,35 +14,13 @@ export default {
     easy: [
         {
             number: 1,
-            icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+            icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />,
+            card_flipped: false
         },
         {
             number: 1,
-            icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
-        },
-        {
-            number: 2,
-            icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
-        },
-        {
-            number: 2,
-            icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
-        },
-        {
-            number: 3,
-            icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
-        },
-        {
-            number: 3,
-            icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
-        },
-        {
-            number: 4,
-            icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
-        },
-        {
-            number: 4,
-            icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+            icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />,
+            card_flipped: false
         }],
     medium: [{
         number: 1,
@@ -47,42 +32,42 @@ export default {
     },
     {
         number: 2,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <FingerprintIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 2,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <FingerprintIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 3,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <AcUnitIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 3,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <AcUnitIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 4,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <AttachmentIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 4,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <AttachmentIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     }, {
         number: 5,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <AudiotrackIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 5,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <AudiotrackIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 6,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <BeachAccessIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 6,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <BeachAccessIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     }],
     hard: [{
         number: 1,
@@ -94,56 +79,56 @@ export default {
     },
     {
         number: 2,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <FingerprintIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 2,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <FingerprintIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 3,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <AcUnitIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 3,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <AcUnitIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 4,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <AttachmentIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 4,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <AttachmentIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     }, {
         number: 5,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <AudiotrackIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 5,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <AudiotrackIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 6,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <BeachAccessIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 6,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <BeachAccessIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     }, {
         number: 7,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <BrightnessLowIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 7,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <BrightnessLowIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 8,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <CakeIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     },
     {
         number: 8,
-        icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
+        icon: <CakeIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     }],
 };

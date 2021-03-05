@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1> memory game </h1>
+      <h1> Memory Game </h1>
 
       <Mode thegameMode={gameMode} setGameMode={setGameMode} />
 
