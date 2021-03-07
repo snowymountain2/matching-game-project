@@ -9,21 +9,20 @@ const singleCard = {
     width: '100px'
 };
 
+const notdisplay = {
+    backgroundColor: 'red'
+};
 
-const Card = ({ icon, setFlipStatus, flipStatus, changeStatus, cardFlipped, id }) => {
 
-    const cardFlip = () => {
+const Card = ({ icon, changeStatus, cardFlipped, id, comparisonValue }) => {
+
+    const cardFlippp = (id) => {
         changeStatus(id);
     }
-
     return (
-        <div style={singleCard} className="single-card" onClick={cardFlip}>
-            <div className="symbol">
-                {/* add ternary oppoerator here for the object property with icon
-             { showResults ? <Results /> : null }
-            */}
-                {console.log(cardFlipped)}
-            </div>
+        <div style={singleCard} className="single-card" onClick={() => cardFlippp(id)}>
+            {cardFlipped ? icon : null}
+            <p>id:{id}</p>
         </div>
     );
 };

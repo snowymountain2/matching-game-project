@@ -6,6 +6,10 @@ import cardList from '../cardslist';
 
 const Cards = ({ thegameMode }) => {
 
+    const [cardvalues, setCardValues] = useState(cardList.easy);
+
+    console.log(cardvalues);
+
     const allCards = {
         display: 'flex',
         margin: 'auto',
@@ -16,12 +20,7 @@ const Cards = ({ thegameMode }) => {
         marginLeft: "8vw",
         marginRight: "8vw"
     };
-
-    const [cardvalues, setCardValues] = useState(shuffle(cardList.easy));
-
     useEffect(() => {
-        console.log(thegameMode);
-
         if (thegameMode === "easy") {
             setCardValues(shuffle(cardList.easy));
         }
@@ -32,23 +31,21 @@ const Cards = ({ thegameMode }) => {
             setCardValues(shuffle(cardList.hard));
         }
     }, [thegameMode]);
-
-    const cardFlip = (id) => {
+    const cardFlip = (number) => {
         const currentCardList = cardvalues.map(item => {
-            if (item.number === id) {
-                return { ...item, card_flipped: true }
-            }
             return item;
         });
+        console.log(cardvalues);
         setCardValues(currentCardList);
     }
-
     return (
         <>
             <div style={allCards}>
-                {cardvalues.map((card, index) => {
+                {cardvalues.map((card) => {
                     return <Card
-                        id={card.number}
+                        key={card.id}
+                        id={card.id}
+                        comparisonValue={card.comparisonvalue}
                         icon={card.icon}
                         cardFlipped={card.card_flipped}
                         changeStatus={cardFlip} />

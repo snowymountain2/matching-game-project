@@ -13,13 +13,27 @@ const thetopMargin = '27px';
 export default {
     easy: [
         {
-            number: 1,
-            icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />,
+            id: 1,
+            comparisonvalue: 1,
+            icon: 'car',
             card_flipped: false
         },
         {
-            number: 1,
-            icon: <AddAlertIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />,
+            id: 2,
+            comparisonvalue: 1,
+            icon: 'car',
+            card_flipped: false
+        },
+        {
+            id: 3,
+            comparisonvalue: 2,
+            icon: 'bus',
+            card_flipped: false
+        },
+        {
+            id: 4,
+            comparisonvalue: 2,
+            icon: 'bus',
             card_flipped: false
         }],
     medium: [{
