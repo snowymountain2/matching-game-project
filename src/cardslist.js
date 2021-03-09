@@ -10,7 +10,7 @@ import CakeIcon from '@material-ui/icons/Cake';
 const picturesize = 80;
 const thetopMargin = '27px';
 
-export default {
+let cardList2020 = {
     easy: [
         {
             id: 1,
@@ -146,3 +146,5 @@ export default {
         icon: <CakeIcon style={{ fontSize: picturesize, marginTop: thetopMargin }} />
     }],
 };
+
+export { cardList2020 };
