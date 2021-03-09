@@ -9,12 +9,10 @@ const Cards = ({ thegameMode }) => {
     let cardList2021 = JSON.parse(JSON.stringify(cardList2020));
     console.log(`top of file ${JSON.stringify(cardList2021.easy)}`);
 
-
-
     const tempcardList = [
         {
             id: 1,
-            comparisonvalue: 1,
+            comparisonvalue: 11111,
             icon: 'car',
             card_flipped: false
         },
