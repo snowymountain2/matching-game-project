@@ -4,38 +4,9 @@ import AddAlertIcon from '@material-ui/icons/AddAlert';
 import { shuffle } from '../Helper';
 import { cardList2020 } from '../cardslist';
 
-const Cards = ({ thegameMode }) => {
+const Cards = ({ thegameMode, thelistofcards }) => {
 
-    let cardList2021 = JSON.parse(JSON.stringify(cardList2020));
-    console.log(`top of file ${JSON.stringify(cardList2021.easy)}`);
-
-    const tempcardList = [
-        {
-            id: 1,
-            comparisonvalue: 11111,
-            icon: 'car',
-            card_flipped: false
-        },
-        {
-            id: 2,
-            comparisonvalue: 1,
-            icon: 'car',
-            card_flipped: false
-        },
-        {
-            id: 3,
-            comparisonvalue: 2,
-            icon: 'bus',
-            card_flipped: false
-        },
-        {
-            id: 4,
-            comparisonvalue: 2,
-            icon: 'bus',
-            card_flipped: false
-        }];
-
-    const [cardvalues, setCardValues] = useState(cardList2021.easy);
+    const [cardvalues, setCardValues] = useState(shuffle(cardList2020));
 
     const allCards = {
         display: 'flex',
@@ -47,29 +18,18 @@ const Cards = ({ thegameMode }) => {
         marginLeft: "8vw",
         marginRight: "8vw"
     };
-    useEffect(() => {
-        if (thegameMode === "easy") {
-            setCardValues(shuffle(cardList2021.easy));
-        }
-        else if (thegameMode === "medium") {
-            setCardValues(shuffle(cardList2021.medium));
-        }
-        else {
-            setCardValues(shuffle(cardList2021.hard));
-        }
-    }, [thegameMode]);
 
 
-    const cardFlip = (number) => {
-        console.log(`top of card flip fn ${JSON.stringify(cardvalues)}`);
-        let newCardsArray = JSON.parse(JSON.stringify(cardvalues));
-        let indexofnewcard = newCardsArray.findIndex(item =>
-            item.id === number);
-        newCardsArray[indexofnewcard].card_flipped = true;
-        console.log(`bottom of card flip fn ${JSON.stringify(newCardsArray)}`);
-        setCardValues(newCardsArray);
+    const cardFlip = (id) => {
+        let updatedList = cardvalues.map(item => {
+            if (item.id == id) {
+                return { ...item, card_flipped: true };
+            }
+            return item;
+        });
+
+        setCardValues([...updatedList]);
     };
-
 
     return (
         <>
