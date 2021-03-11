@@ -27,6 +27,9 @@ function App() {
         medList={cardvaluesmed}
         hardList={cardvalueshard}
         thegameMode={gameMode}
+        updateeasyList={setEasyCardValues}
+        updatemedList={setMedCardValues}
+        updatehardList={setHardCardValues}
       />
 
     </div>

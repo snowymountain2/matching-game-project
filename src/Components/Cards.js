@@ -3,7 +3,15 @@ import Card from './Card';
 import AddAlertIcon from '@material-ui/icons/AddAlert';
 import { shuffle, selectCardSet } from '../Helper';
 
-const Cards = ({ thefinallistofcards, thegameMode, updatethefinallistofcards, easyList, medList, hardList }) => {
+const Cards = ({ thefinallistofcards,
+    thegameMode,
+    updatethefinallistofcards,
+    easyList,
+    medList,
+    hardList,
+    updateeasyList,
+    updatemedList,
+    updatehardList }) => {
 
     const allCards = {
         display: 'flex',
@@ -17,14 +25,13 @@ const Cards = ({ thefinallistofcards, thegameMode, updatethefinallistofcards, ea
     };
 
     const cardFlip = (id) => {
-        console.log(thefinallistofcards);
-        let updatedList = thefinallistofcards.map(item => {
+        let updatedList = selectCardSet(thegameMode).map(item => {
             if (item.id == id) {
                 return { ...item, card_flipped: true };
             }
             return item;
         });
-        updatethefinallistofcards([...updatedList]);
+        selectCardUpdateMethod(thegameMode, updatedList);
     };
 
     const selectCardSet = (mode) => {
@@ -34,6 +41,16 @@ const Cards = ({ thefinallistofcards, thegameMode, updatethefinallistofcards, ea
             return medList;
         } else {
             return hardList;
+        }
+    }
+
+    const selectCardUpdateMethod = (mode, theUpdatedList) => {
+        if (mode === "easy") {
+            return updateeasyList([...theUpdatedList]);
+        } else if (mode === "medium") {
+            return updatemedList([...theUpdatedList]);
+        } else {
+            return updatehardList([...theUpdatedList]);
         }
     }
 
