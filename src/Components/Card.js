@@ -23,7 +23,7 @@ const Card = ({ icon, changeStatus, cardFlipped, id, comparisonValue }) => {
         <div style={singleCard} className="single-card" onClick={() => cardFlippp(id)}>
             {cardFlipped ? icon : null}
             <p>id:{id}</p>
-            <p>{cardFlipped.toString()}</p>
+
         </div>
     );
 };

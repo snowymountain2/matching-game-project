@@ -10,7 +10,7 @@ import CakeIcon from '@material-ui/icons/Cake';
 const picturesize = 80;
 const thetopMargin = '27px';
 
-let cardList2020 = [
+let cardListEasy = [
     {
         id: 1,
         comparisonvalue: 1,
@@ -60,4 +60,158 @@ let cardList2020 = [
         card_flipped: false
     }];
 
-export { cardList2020 };
+let cardListMed = [
+    {
+        id: 1,
+        comparisonvalue: 1,
+        icon: <AddAlertIcon />,
+        card_flipped: false
+    },
+    {
+        id: 2,
+        comparisonvalue: 1,
+        icon: <AddAlertIcon />,
+        card_flipped: false
+    },
+    {
+        id: 3,
+        comparisonvalue: 2,
+        icon: <FingerprintIcon />,
+        card_flipped: false
+    },
+    {
+        id: 4,
+        comparisonvalue: 2,
+        icon: <FingerprintIcon />,
+        card_flipped: false
+    },
+    {
+        id: 5,
+        comparisonvalue: 1,
+        icon: <AttachmentIcon />,
+        card_flipped: false
+    },
+    {
+        id: 6,
+        comparisonvalue: 1,
+        icon: <AttachmentIcon />,
+        card_flipped: false
+    },
+    {
+        id: 7,
+        comparisonvalue: 2,
+        icon: <AcUnitIcon />,
+        card_flipped: false
+    },
+    {
+        id: 8,
+        comparisonvalue: 2,
+        icon: <AcUnitIcon />,
+        card_flipped: false
+    },
+    {
+        id: 6,
+        comparisonvalue: 1,
+        icon: <AttachmentIcon />,
+        card_flipped: false
+    },
+    {
+        id: 7,
+        comparisonvalue: 2,
+        icon: <AcUnitIcon />,
+        card_flipped: false
+    },
+    {
+        id: 8,
+        comparisonvalue: 2,
+        icon: <AcUnitIcon />,
+        card_flipped: false
+    }];
+
+let cardListHard = [
+    {
+        id: 1,
+        comparisonvalue: 1,
+        icon: <AddAlertIcon />,
+        card_flipped: false
+    },
+    {
+        id: 2,
+        comparisonvalue: 1,
+        icon: <AddAlertIcon />,
+        card_flipped: false
+    },
+    {
+        id: 3,
+        comparisonvalue: 2,
+        icon: <FingerprintIcon />,
+        card_flipped: false
+    },
+    {
+        id: 4,
+        comparisonvalue: 2,
+        icon: <FingerprintIcon />,
+        card_flipped: false
+    },
+    {
+        id: 5,
+        comparisonvalue: 1,
+        icon: <AttachmentIcon />,
+        card_flipped: false
+    },
+    {
+        id: 6,
+        comparisonvalue: 1,
+        icon: <AttachmentIcon />,
+        card_flipped: false
+    },
+    {
+        id: 7,
+        comparisonvalue: 2,
+        icon: <AcUnitIcon />,
+        card_flipped: false
+    },
+    {
+        id: 8,
+        comparisonvalue: 2,
+        icon: <AcUnitIcon />,
+        card_flipped: false
+    },
+    {
+        id: 3,
+        comparisonvalue: 2,
+        icon: <FingerprintIcon />,
+        card_flipped: false
+    },
+    {
+        id: 4,
+        comparisonvalue: 2,
+        icon: <FingerprintIcon />,
+        card_flipped: false
+    },
+    {
+        id: 5,
+        comparisonvalue: 1,
+        icon: <AttachmentIcon />,
+        card_flipped: false
+    },
+    {
+        id: 6,
+        comparisonvalue: 1,
+        icon: <AttachmentIcon />,
+        card_flipped: false
+    },
+    {
+        id: 7,
+        comparisonvalue: 2,
+        icon: <AcUnitIcon />,
+        card_flipped: false
+    },
+    {
+        id: 8,
+        comparisonvalue: 2,
+        icon: <AcUnitIcon />,
+        card_flipped: false
+    }];
+
+export { cardListEasy, cardListMed, cardListHard };

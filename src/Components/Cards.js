@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import AddAlertIcon from '@material-ui/icons/AddAlert';
-import { shuffle } from '../Helper';
-import { cardList2020 } from '../cardslist';
+import { shuffle, selectCardSet } from '../Helper';
 
-const Cards = ({ thegameMode, thelistofcards }) => {
-
-    const [cardvalues, setCardValues] = useState(shuffle(cardList2020));
+const Cards = ({ thefinallistofcards, thegameMode, updatethefinallistofcards, easyList, medList, hardList }) => {
 
     const allCards = {
         display: 'flex',
@@ -19,22 +16,31 @@ const Cards = ({ thegameMode, thelistofcards }) => {
         marginRight: "8vw"
     };
 
-
     const cardFlip = (id) => {
-        let updatedList = cardvalues.map(item => {
+        console.log(thefinallistofcards);
+        let updatedList = thefinallistofcards.map(item => {
             if (item.id == id) {
                 return { ...item, card_flipped: true };
             }
             return item;
         });
-
-        setCardValues([...updatedList]);
+        updatethefinallistofcards([...updatedList]);
     };
+
+    const selectCardSet = (mode) => {
+        if (mode === "easy") {
+            return easyList;
+        } else if (mode === "medium") {
+            return medList;
+        } else {
+            return hardList;
+        }
+    }
 
     return (
         <>
             <div style={allCards}>
-                {cardvalues.map((card) => {
+                {selectCardSet(thegameMode).map((card) => {
                     return <Card
                         key={card.id}
                         id={card.id}
