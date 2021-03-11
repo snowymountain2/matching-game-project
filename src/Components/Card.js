@@ -14,10 +14,11 @@ const notdisplay = {
 };
 
 
-const Card = ({ icon, changeStatus, cardFlipped, id, comparisonValue }) => {
+const Card = ({ icon, changeStatus, cardFlipped, id, comparisonValue, setAttemptCount }) => {
 
     const cardFlippp = (id) => {
         changeStatus(id);
+        setAttemptCount(previous => previous + 1);
     }
     return (
         <div style={singleCard} className="single-card" onClick={() => cardFlippp(id)}>
