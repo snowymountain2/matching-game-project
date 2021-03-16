@@ -12,7 +12,9 @@ const Cards = ({ thefinallistofcards,
     updateeasyList,
     updatemedList,
     updatehardList,
-    setAttempts }) => {
+    setAttempts,
+    setScore,
+    attempt }) => {
 
     const allCards = {
         display: 'flex',
@@ -66,7 +68,9 @@ const Cards = ({ thefinallistofcards,
                         icon={card.icon}
                         cardFlipped={card.card_flipped}
                         changeStatus={cardFlip}
-                        setAttemptCount={setAttempts} />
+                        setAttemptCount={setAttempts}
+                        setScore={setScore}
+                        attempt={attempt} />
                 })}
             </div>
         </>

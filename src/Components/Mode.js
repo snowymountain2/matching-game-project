@@ -3,13 +3,20 @@ import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@ma
 
 const Mode = ({ thegameMode, setGameMode }) => {
 
+    const modeStyles = {
+        backgroundColor: 'yellow',
+        margin: '5px 5px 5px 5px',
+        height: '140px',
+        width: '400px'
+    };
+
     const grabGameMode = (e) => {
         e.preventDefault();
         setGameMode(e.target.value);
     }
 
     return (
-        <div>
+        <div style={modeStyles}>
             <FormControl component="fieldset">
                 <FormLabel component="legend">Mode</FormLabel>
                 <RadioGroup row aria-label="gender" name="gender1" value={thegameMode} onChange={grabGameMode}>

@@ -37,25 +37,25 @@ let cardListEasy = [
     },
     {
         id: 5,
-        comparisonvalue: 1,
+        comparisonvalue: 3,
         icon: <AttachmentIcon />,
         card_flipped: false
     },
     {
         id: 6,
-        comparisonvalue: 1,
+        comparisonvalue: 3,
         icon: <AttachmentIcon />,
         card_flipped: false
     },
     {
         id: 7,
-        comparisonvalue: 2,
+        comparisonvalue: 4,
         icon: <AcUnitIcon />,
         card_flipped: false
     },
     {
         id: 8,
-        comparisonvalue: 2,
+        comparisonvalue: 4,
         icon: <AcUnitIcon />,
         card_flipped: false
     }];

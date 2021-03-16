@@ -1,37 +1,97 @@
 import logo from './logo.svg';
 import './App.css';
 import Cards from './Components/Cards'
-import Menu from './Components/Menu'
 import Mode from './Components/Mode'
-import { useState, useEffect } from 'react';
+import Score from './Components/Score'
+import { useState, useEffect, useRef } from 'react';
 import { cardListEasy, cardListMed, cardListHard } from './cardslist';
 import { shuffle, selectCardSet } from './Helper';
 
 function App() {
 
+  let attemptObject = {
+    attempt: 0,
+    attemptComparisonValues: []
+  }
+
   const [gameMode, setGameMode] = useState("easy");
-  const [cardvalueseasy, setEasyCardValues] = useState(cardListEasy);
-  const [cardvaluesmed, setMedCardValues] = useState(cardListMed);
-  const [cardvalueshard, setHardCardValues] = useState(cardListHard);
-  const [attempt, setAttempt] = useState(0);
+  const [cardvalueseasy, setEasyCardValues] = useState(shuffle(cardListEasy));
+  const [cardvaluesmed, setMedCardValues] = useState(shuffle(cardListMed));
+  const [cardvalueshard, setHardCardValues] = useState(shuffle(cardListHard));
+  const [attempt, setAttempt] = useState(attemptObject);
+  const [score, setScore] = useState(0);
 
-  {/* 3/10 last left off by adding attempt functionality. i established state for it 
-    and have it firing correctly when a card is flipped (i was console logging it). 
-    here is the logic i need to implement: 
+  const selectCardSet = (mode) => {
+    if (mode === "easy") {
+      return cardListEasy.length;
+    } else if (mode === "medium") {
+      return cardListMed.length;
+    } else {
+      return cardListHard.length;
+    }
+  }
 
-      1. starts at 0
-      2. when user flips a card the attempt counter increases by 1
-      3. when user flips a 2nd card: 
-          1. if comparison from attempt 1 and attempt 2 are same then (game continues) and (score increases by) 
-          2. if comparison does not equal game over - (score does not increase) 
+  const didMountRefAttempt = useRef(false)
+  const didMountRefCompValues = useRef(false)
 
-  */ }
+
+  useEffect(() => {
+    if (didMountRefAttempt.current) {
+      return setAttempt({ ...attempt, attempt: attempt.attempt + 1 });
+    } else {
+      return didMountRefAttempt.current = true
+    }
+  }, [attempt.attemptComparisonValues])
+
+  /* variables to help w/ array handling */
+  let GetLastCardValue = () => {
+    return attempt.attemptComparisonValues.length - 1;
+  }
+  let GetSecondLastCardValue = () => {
+    return attempt.attemptComparisonValues.length - 2;
+  }
+
+  useEffect(() => {
+    console.log(attempt);
+    /* if 1st attempt - do nothing */
+    if (didMountRefCompValues.current) {
+      if (attempt.attempt % 2 !== 0) {
+        return console.log('attempt1');
+      }
+      /* if 2nd attempt - handle both correct or wrong situations */
+      else {
+        /* if 2nd attempt wrong */
+        if (attempt.attemptComparisonValues[GetLastCardValue()] !== attempt.attemptComparisonValues[GetSecondLastCardValue()]) {
+          return console.log('gameover');
+        }
+        /* if 2nd attempt [correct] AND wasn't final match - add 1 point to score */
+        else if (attempt.attemptComparisonValues[GetLastCardValue()] === attempt.attemptComparisonValues[GetSecondLastCardValue()]
+          &&
+          attempt.attempt !== selectCardSet(gameMode).length) {
+          console.log('you got one right');
+          return setScore(prevState => prevState + 1);
+        }
+        /* if 2nd attempt [correct] AND final match - add 1 point to score & say victory */
+        else {
+          return console.log('congratz you won');
+        }
+      }
+    } else {
+      return didMountRefCompValues.current = true;
+    }
+  }, [attempt.attempt])
+
+  /*
+  3/11 changed attempts state to be object, so now working on updating setAttempts in Card component 
+  */
 
   return (
     <div className="App">
       <h1> Memory Game </h1>
-      {console.log(attempt)}
-      <Mode thegameMode={gameMode} setGameMode={setGameMode} />
+      <div className="Menu">
+        <Mode thegameMode={gameMode} setGameMode={setGameMode} />
+        <Score gameScore={score} />
+      </div>
 
       <Cards easyList={cardvalueseasy}
         medList={cardvaluesmed}
@@ -41,6 +101,8 @@ function App() {
         updatemedList={setMedCardValues}
         updatehardList={setHardCardValues}
         setAttempts={setAttempt}
+        attempt={attempt}
+        setScore={setScore}
       />
 
     </div>

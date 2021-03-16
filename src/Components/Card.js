@@ -14,19 +14,46 @@ const notdisplay = {
 };
 
 
-const Card = ({ icon, changeStatus, cardFlipped, id, comparisonValue, setAttemptCount }) => {
+const Card = ({ icon, changeStatus, cardFlipped, id, comparisonValue, setAttemptCount, attempt, setScore }) => {
 
-    const cardFlippp = (id) => {
+    const updateComparisonValues = (comparisonValue) => {
+        setAttemptCount({ ...attempt, attemptComparisonValues: [...attempt.attemptComparisonValues, comparisonValue] });
+    }
+
+    const cardFlippp = (id, comparisonValue) => {
         changeStatus(id);
-        setAttemptCount(previous => previous + 1);
+        updateComparisonValues(comparisonValue);
+
     }
     return (
-        <div style={singleCard} className="single-card" onClick={() => cardFlippp(id)}>
+        <div style={singleCard} className="single-card" onClick={() => cardFlippp(id, comparisonValue)}>
             {cardFlipped ? icon : null}
             <p>id:{id}</p>
+            {comparisonValue}
 
         </div>
     );
 };
 
 export default Card;
+
+
+{/*
+ 
+    const updateAttemptCount = (attemptState) => {
+        return attemptState + 1;
+    }
+
+    const updateComparisonValues = (comparisonValue) => {
+        setAttemptCount({ ...attempt, attemptComparisonValues: [...attempt.attemptComparisonValues, comparisonValue] });
+    }
+
+    const cardFlippp = (id, comparisonValue) => {
+        changeStatus(id);
+        setAttemptCount({ ...attempt, score: updateAttemptCount(attempt.score) });
+        updateComparisonValues(comparisonValue);
+
+    }
+  
+
+  */ }
