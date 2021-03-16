@@ -60,6 +60,10 @@ const Cards = ({ thefinallistofcards,
     return (
         <>
             <div style={allCards}>
+                {console.log(easyList)}
+                {console.log(medList)}
+                {console.log(hardList)}
+
                 {selectCardSet(thegameMode).map((card) => {
                     return <Card
                         key={card.id}

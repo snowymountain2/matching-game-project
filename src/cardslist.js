@@ -62,68 +62,74 @@ let cardListEasy = [
 
 let cardListMed = [
     {
-        id: 1,
+        id: 9,
         comparisonvalue: 1,
         icon: <AddAlertIcon />,
         card_flipped: false
     },
     {
-        id: 2,
+        id: 10,
         comparisonvalue: 1,
         icon: <AddAlertIcon />,
         card_flipped: false
     },
     {
-        id: 3,
+        id: 11,
         comparisonvalue: 2,
         icon: <FingerprintIcon />,
         card_flipped: false
     },
     {
-        id: 4,
+        id: 12,
         comparisonvalue: 2,
         icon: <FingerprintIcon />,
         card_flipped: false
     },
     {
-        id: 5,
-        comparisonvalue: 1,
+        id: 13,
+        comparisonvalue: 3,
         icon: <AttachmentIcon />,
         card_flipped: false
     },
     {
-        id: 6,
-        comparisonvalue: 1,
+        id: 14,
+        comparisonvalue: 3,
         icon: <AttachmentIcon />,
         card_flipped: false
     },
     {
-        id: 7,
-        comparisonvalue: 2,
+        id: 15,
+        comparisonvalue: 4,
         icon: <AcUnitIcon />,
         card_flipped: false
     },
     {
-        id: 8,
-        comparisonvalue: 2,
+        id: 16,
+        comparisonvalue: 4,
         icon: <AcUnitIcon />,
         card_flipped: false
     },
     {
-        id: 6,
-        comparisonvalue: 1,
+        id: 17,
+        comparisonvalue: 5,
         icon: <AttachmentIcon />,
         card_flipped: false
     },
     {
-        id: 7,
-        comparisonvalue: 2,
+        id: 18,
+        comparisonvalue: 5,
         icon: <AcUnitIcon />,
         card_flipped: false
     },
     {
-        id: 8,
-        comparisonvalue: 2,
+        id: 19,
+        comparisonvalue: 6,
+        icon: <AcUnitIcon />,
+        card_flipped: false
+    },
+    {
+        id: 20,
+        comparisonvalue: 6,
         icon: <AcUnitIcon />,
         card_flipped: false
     }];

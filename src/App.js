@@ -31,8 +31,8 @@ function App() {
     }
   }
 
-  const didMountRefAttempt = useRef(false)
-  const didMountRefCompValues = useRef(false)
+  const didMountRefAttempt = useRef(false);
+  const didMountRefCompValues = useRef(false);
 
 
   useEffect(() => {
@@ -82,7 +82,9 @@ function App() {
   }, [attempt.attempt])
 
   /*
-  3/11 changed attempts state to be object, so now working on updating setAttempts in Card component 
+  3/16 the large useEffect is messing up the card ordering - when 
+  i removed it, the ordering was correct again 
+ 
   */
 
   return (
