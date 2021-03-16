@@ -22,7 +22,6 @@ const Cards = ({ thefinallistofcards,
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        backgroundColor: 'gray',
         marginLeft: "8vw",
         marginRight: "8vw"
     };
@@ -36,7 +35,6 @@ const Cards = ({ thefinallistofcards,
         });
         selectCardUpdateMethod(thegameMode, updatedList);
     };
-
     const selectCardSet = (mode) => {
         if (mode === "easy") {
             return easyList;
@@ -46,7 +44,6 @@ const Cards = ({ thefinallistofcards,
             return hardList;
         }
     }
-
     const selectCardUpdateMethod = (mode, theUpdatedList) => {
         if (mode === "easy") {
             return updateeasyList([...theUpdatedList]);
@@ -60,10 +57,6 @@ const Cards = ({ thefinallistofcards,
     return (
         <>
             <div style={allCards}>
-                {console.log(easyList)}
-                {console.log(medList)}
-                {console.log(hardList)}
-
                 {selectCardSet(thegameMode).map((card) => {
                     return <Card
                         key={card.id}

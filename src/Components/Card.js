@@ -3,16 +3,11 @@ import { useState } from 'react';
 
 
 const singleCard = {
-    backgroundColor: 'yellow',
+    backgroundColor: 'gray',
     margin: '5px 5px 5px 5px',
     height: '140px',
     width: '100px'
 };
-
-const notdisplay = {
-    backgroundColor: 'red'
-};
-
 
 const Card = ({ icon, changeStatus, cardFlipped, id, comparisonValue, setAttemptCount, attempt, setScore }) => {
 
@@ -36,24 +31,3 @@ const Card = ({ icon, changeStatus, cardFlipped, id, comparisonValue, setAttempt
 };
 
 export default Card;
-
-
-{/*
- 
-    const updateAttemptCount = (attemptState) => {
-        return attemptState + 1;
-    }
-
-    const updateComparisonValues = (comparisonValue) => {
-        setAttemptCount({ ...attempt, attemptComparisonValues: [...attempt.attemptComparisonValues, comparisonValue] });
-    }
-
-    const cardFlippp = (id, comparisonValue) => {
-        changeStatus(id);
-        setAttemptCount({ ...attempt, score: updateAttemptCount(attempt.score) });
-        updateComparisonValues(comparisonValue);
-
-    }
-  
-
-  */ }

@@ -3,15 +3,14 @@ import React from 'react';
 
 const Score = ({ gameScore }) => {
 
-    const scoreStyles = {
-        backgroundColor: 'yellow',
-        height: '140px',
-        width: '100px'
+    const scoreTitle = {
+        marginTop: '5px',
+        marginBottom: '0px'
     };
 
     return (
-        <div style={scoreStyles}>
-            <h2>score</h2>
+        <div>
+            <h2 style={scoreTitle}>score</h2>
             <p>{gameScore}</p>
         </div>
     );

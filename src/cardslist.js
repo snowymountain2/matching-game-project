@@ -136,85 +136,85 @@ let cardListMed = [
 
 let cardListHard = [
     {
-        id: 1,
+        id: 21,
         comparisonvalue: 1,
         icon: <AddAlertIcon />,
         card_flipped: false
     },
     {
-        id: 2,
+        id: 22,
         comparisonvalue: 1,
         icon: <AddAlertIcon />,
         card_flipped: false
     },
     {
-        id: 3,
+        id: 23,
         comparisonvalue: 2,
         icon: <FingerprintIcon />,
         card_flipped: false
     },
     {
-        id: 4,
+        id: 24,
         comparisonvalue: 2,
         icon: <FingerprintIcon />,
         card_flipped: false
     },
     {
-        id: 5,
+        id: 25,
         comparisonvalue: 1,
         icon: <AttachmentIcon />,
         card_flipped: false
     },
     {
-        id: 6,
+        id: 26,
         comparisonvalue: 1,
         icon: <AttachmentIcon />,
         card_flipped: false
     },
     {
-        id: 7,
+        id: 27,
         comparisonvalue: 2,
         icon: <AcUnitIcon />,
         card_flipped: false
     },
     {
-        id: 8,
+        id: 28,
         comparisonvalue: 2,
         icon: <AcUnitIcon />,
         card_flipped: false
     },
     {
-        id: 3,
+        id: 29,
         comparisonvalue: 2,
         icon: <FingerprintIcon />,
         card_flipped: false
     },
     {
-        id: 4,
+        id: 30,
         comparisonvalue: 2,
         icon: <FingerprintIcon />,
         card_flipped: false
     },
     {
-        id: 5,
+        id: 31,
         comparisonvalue: 1,
         icon: <AttachmentIcon />,
         card_flipped: false
     },
     {
-        id: 6,
+        id: 32,
         comparisonvalue: 1,
         icon: <AttachmentIcon />,
         card_flipped: false
     },
     {
-        id: 7,
+        id: 33,
         comparisonvalue: 2,
         icon: <AcUnitIcon />,
         card_flipped: false
     },
     {
-        id: 8,
+        id: 34,
         comparisonvalue: 2,
         icon: <AcUnitIcon />,
         card_flipped: false

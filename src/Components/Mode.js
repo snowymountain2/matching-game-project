@@ -1,18 +1,18 @@
 import React from 'react';
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@material-ui/core';
 
-const Mode = ({ thegameMode, setGameMode }) => {
+const Mode = ({ thegameMode, setGameMode, setScore }) => {
 
     const modeStyles = {
         backgroundColor: 'yellow',
         margin: '5px 5px 5px 5px',
-        height: '140px',
         width: '400px'
     };
 
     const grabGameMode = (e) => {
         e.preventDefault();
         setGameMode(e.target.value);
+        setScore(prevState => prevState * 0);
     }
 
     return (
