@@ -14,49 +14,49 @@ let cardListEasy = [
     {
         id: 1,
         comparisonvalue: 1,
-        icon: <img src={'/images/bob.png'} width={'50px'} height={'60px'} />,
+        icon: <img src={'/images/bob.png'} width={'90px'} height={'130px'} />,
         card_flipped: false
     },
     {
         id: 2,
         comparisonvalue: 1,
-        icon: <AddAlertIcon />,
+        icon: <img src={'/images/bob.png'} width={'90px'} height={'130px'} />,
         card_flipped: false
     },
     {
         id: 3,
         comparisonvalue: 2,
-        icon: <FingerprintIcon />,
+        icon: <img src={'/images/tina.png'} width={'90px'} height={'130px'} />,
         card_flipped: false
     },
     {
         id: 4,
         comparisonvalue: 2,
-        icon: <FingerprintIcon />,
+        icon: <img src={'/images/tina.png'} width={'90px'} height={'130px'} />,
         card_flipped: false
     },
     {
         id: 5,
         comparisonvalue: 3,
-        icon: <AttachmentIcon />,
+        icon: <img src={'/images/linda.png'} width={'90px'} height={'130px'} />,
         card_flipped: false
     },
     {
         id: 6,
         comparisonvalue: 3,
-        icon: <AttachmentIcon />,
+        icon: <img src={'/images/linda.png'} width={'90px'} height={'130px'} />,
         card_flipped: false
     },
     {
         id: 7,
         comparisonvalue: 4,
-        icon: <AcUnitIcon />,
+        icon: <img src={'/images/gene.png'} width={'90px'} height={'130px'} />,
         card_flipped: false
     },
     {
         id: 8,
         comparisonvalue: 4,
-        icon: <AcUnitIcon />,
+        icon: <img src={'/images/gene.png'} width={'90px'} height={'130px'} />,
         card_flipped: false
     }];
 

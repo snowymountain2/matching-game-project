@@ -3,9 +3,10 @@ import './App.css';
 import Cards from './Components/Cards'
 import Mode from './Components/Mode'
 import Score from './Components/Score'
+import ButtonElement from './Components/Button'
 import { useState, useEffect, useRef } from 'react';
 import { cardListEasy, cardListMed, cardListHard } from './cardslist';
-import { shuffle, selectCardSet } from './Helper';
+import { shuffle } from './Helper';
 
 function App() {
 
@@ -31,14 +32,15 @@ function App() {
   const [attempt, setAttempt] = useState(attemptObject);
   const [maxScore, setMaxScore] = useState(0);
   const [score, setScore] = useState(0);
+  const [begin, setBegin] = useState(false);
 
   const selectCardSet = (mode) => {
     if (mode === "easy") {
-      return cardListEasy.length;
+      return cardvalueseasy;
     } else if (mode === "medium") {
-      return cardListMed.length;
+      return cardvaluesmed;
     } else {
-      return cardListHard.length;
+      return cardvalueshard;
     }
   }
 
@@ -62,7 +64,35 @@ function App() {
   }
 
 
-
+  useEffect(() => {
+    /* if 1st attempt - do nothing */
+    if (didMountRefCompValues.current) {
+      if (attempt.attempt % 2 !== 0) {
+        return console.log('attempt1');
+      }
+      /* if 2nd attempt - handle both correct or wrong situations */
+      else {
+        /* if 2nd attempt wrong */
+        if (attempt.attemptComparisonValues[GetLastCardValue()] !== attempt.attemptComparisonValues[GetSecondLastCardValue()]) {
+          return console.log('gameover');
+        }
+        /* if 2nd attempt [correct] AND wasn't final match - add 1 point to score */
+        else if (attempt.attemptComparisonValues[GetLastCardValue()] === attempt.attemptComparisonValues[GetSecondLastCardValue()]
+          &&
+          attempt.attempt !== maxScore) {
+          console.log('you got one right')
+          return setScore(prevState => prevState + 1);
+        }
+        /* if 2nd attempt [correct] AND final match - add 1 point to score & say victory */
+        else {
+          setScore(prevState => prevState + 1);
+          return console.log('congratz you won');
+        }
+      }
+    } else {
+      return didMountRefCompValues.current = true;
+    }
+  }, [attempt.attempt])
 
   /*used to keep track of current card list array length */
   useEffect(() => {
@@ -78,12 +108,36 @@ function App() {
     }
   }, [gameMode])
 
+  /* updating the card flip status when the game starts */
+
+  const selectCardUpdateMethod = (mode, theUpdatedList) => {
+    if (mode === "easy") {
+      return setEasyCardValues([...theUpdatedList]);
+    } else if (mode === "medium") {
+      return setMedCardValues([...theUpdatedList]);
+    } else {
+      return setHardCardValues([...theUpdatedList]);
+    }
+  }
+  useEffect(() => {
+    if (begin) {
+      let updatedList = selectCardSet(gameMode).map(item => {
+        return { ...item, card_flipped: true };
+      })
+      selectCardUpdateMethod(gameMode, updatedList);
+    } else {
+      let updatedList = selectCardSet(gameMode).map(item => {
+        return { ...item, card_flipped: false };
+      })
+      selectCardUpdateMethod(gameMode, updatedList);
+    }
+  }, [begin])
 
   /*
   3/16 the large useEffect is messing up the card ordering - when 
   i removed it, the ordering was correct again 
   3/16 pt 2 - update .map method that's rendering cards to be more constant so it won't dynamically change
-
+  
  
   */
 
@@ -91,6 +145,7 @@ function App() {
     <div className="App">
       <h1> Memory Game </h1>
       <div style={menuStyles}>
+        <ButtonElement setBegin={setBegin} begin={begin} />
         <Mode thegameMode={gameMode} setGameMode={setGameMode} setScore={setScore} />
         <Score gameScore={score} />
       </div>

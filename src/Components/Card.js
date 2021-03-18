@@ -6,7 +6,8 @@ const singleCard = {
     backgroundColor: 'gray',
     margin: '5px 5px 5px 5px',
     height: '140px',
-    width: '100px'
+    width: '100px',
+    paddingTop: '8px'
 };
 
 const Card = ({ icon, changeStatus, cardFlipped, id, comparisonValue, setAttemptCount, attempt, setScore }) => {
@@ -22,8 +23,7 @@ const Card = ({ icon, changeStatus, cardFlipped, id, comparisonValue, setAttempt
     }
     return (
         <div style={singleCard} className="single-card" onClick={() => cardFlippp(id, comparisonValue)}>
-            <p>id:{id}</p>
-            {comparisonValue}
+
             {cardFlipped ? icon : null}
 
         </div>
