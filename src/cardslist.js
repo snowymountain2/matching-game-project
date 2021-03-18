@@ -14,7 +14,7 @@ let cardListEasy = [
     {
         id: 1,
         comparisonvalue: 1,
-        icon: <AddAlertIcon />,
+        icon: <img src={'/images/bob.png'} width={'50px'} height={'60px'} />,
         card_flipped: false
     },
     {

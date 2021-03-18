@@ -61,35 +61,7 @@ function App() {
     return attempt.attemptComparisonValues.length - 2;
   }
 
-  useEffect(() => {
-    /* if 1st attempt - do nothing */
-    if (didMountRefCompValues.current) {
-      if (attempt.attempt % 2 !== 0) {
-        return console.log('attempt1');
-      }
-      /* if 2nd attempt - handle both correct or wrong situations */
-      else {
-        /* if 2nd attempt wrong */
-        if (attempt.attemptComparisonValues[GetLastCardValue()] !== attempt.attemptComparisonValues[GetSecondLastCardValue()]) {
-          return console.log('gameover');
-        }
-        /* if 2nd attempt [correct] AND wasn't final match - add 1 point to score */
-        else if (attempt.attemptComparisonValues[GetLastCardValue()] === attempt.attemptComparisonValues[GetSecondLastCardValue()]
-          &&
-          attempt.attempt !== maxScore) {
-          console.log('you got one right')
-          return setScore(prevState => prevState + 1);
-        }
-        /* if 2nd attempt [correct] AND final match - add 1 point to score & say victory */
-        else {
-          setScore(prevState => prevState + 1);
-          return console.log('congratz you won');
-        }
-      }
-    } else {
-      return didMountRefCompValues.current = true;
-    }
-  }, [attempt.attempt])
+
 
 
   /*used to keep track of current card list array length */
@@ -110,6 +82,8 @@ function App() {
   /*
   3/16 the large useEffect is messing up the card ordering - when 
   i removed it, the ordering was correct again 
+  3/16 pt 2 - update .map method that's rendering cards to be more constant so it won't dynamically change
+
  
   */
 

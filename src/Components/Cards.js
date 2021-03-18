@@ -26,6 +26,16 @@ const Cards = ({ thefinallistofcards,
         marginRight: "8vw"
     };
 
+    const selectCardUpdateMethod = (mode, theUpdatedList) => {
+        if (mode === "easy") {
+            return updateeasyList([...theUpdatedList]);
+        } else if (mode === "medium") {
+            return updatemedList([...theUpdatedList]);
+        } else {
+            return updatehardList([...theUpdatedList]);
+        }
+    }
+
     const cardFlip = (id) => {
         let updatedList = selectCardSet(thegameMode).map(item => {
             if (item.id == id) {
@@ -42,15 +52,6 @@ const Cards = ({ thefinallistofcards,
             return medList;
         } else {
             return hardList;
-        }
-    }
-    const selectCardUpdateMethod = (mode, theUpdatedList) => {
-        if (mode === "easy") {
-            return updateeasyList([...theUpdatedList]);
-        } else if (mode === "medium") {
-            return updatemedList([...theUpdatedList]);
-        } else {
-            return updatehardList([...theUpdatedList]);
         }
     }
 

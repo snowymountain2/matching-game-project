@@ -15,16 +15,16 @@ const Card = ({ icon, changeStatus, cardFlipped, id, comparisonValue, setAttempt
         setAttemptCount({ ...attempt, attemptComparisonValues: [...attempt.attemptComparisonValues, comparisonValue] });
     }
 
-    const cardFlippp = (id, comparisonValue) => {
-        changeStatus(id);
+    async function cardFlippp(id, comparisonValue) {
+        await changeStatus(id);
         updateComparisonValues(comparisonValue);
 
     }
     return (
         <div style={singleCard} className="single-card" onClick={() => cardFlippp(id, comparisonValue)}>
-            {cardFlipped ? icon : null}
             <p>id:{id}</p>
             {comparisonValue}
+            {cardFlipped ? icon : null}
 
         </div>
     );
