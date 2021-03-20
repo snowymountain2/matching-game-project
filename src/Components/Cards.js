@@ -64,6 +64,7 @@ const Cards = ({ thefinallistofcards,
                         id={card.id}
                         comparisonValue={card.comparisonvalue}
                         icon={card.icon}
+                        front={card.front}
                         cardFlipped={card.card_flipped}
                         changeStatus={cardFlip}
                         setAttemptCount={setAttempts}

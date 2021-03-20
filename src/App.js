@@ -33,6 +33,7 @@ function App() {
   const [maxScore, setMaxScore] = useState(0);
   const [score, setScore] = useState(0);
   const [begin, setBegin] = useState(false);
+  const [seconds, setSeconds] = useState(10);
 
   const selectCardSet = (mode) => {
     if (mode === "easy") {
@@ -46,12 +47,14 @@ function App() {
 
   const didMountRefAttempt = useRef(false);
   const didMountRefCompValues = useRef(false);
+  const didMountRefTimeValues = useRef(false);
+
 
   useEffect(() => {
     if (didMountRefAttempt.current) {
       return setAttempt({ ...attempt, attempt: attempt.attempt + 1 });
     } else {
-      return didMountRefAttempt.current = true
+      return didMountRefAttempt.current = true;
     }
   }, [attempt.attemptComparisonValues])
 
@@ -133,6 +136,27 @@ function App() {
     }
   }, [begin])
 
+  // handles the timer functionlity when the start button is clicked
+  useEffect(() => {
+    if (didMountRefTimeValues.current) {
+      if (seconds > 0) {
+        setTimeout(() => {
+          setSeconds(prevState => prevState - 1);
+        }, 1000);
+      }
+      else if (seconds === 0 && begin == true) {
+        setBegin(!begin);
+      }
+      else {
+        return;
+      }
+    }
+    else {
+      didMountRefTimeValues.current = true;
+    }
+  }, [seconds, begin])
+
+
   /*
   3/16 the large useEffect is messing up the card ordering - when 
   i removed it, the ordering was correct again 
@@ -145,7 +169,8 @@ function App() {
     <div className="App">
       <h1> Memory Game </h1>
       <div style={menuStyles}>
-        <ButtonElement setBegin={setBegin} begin={begin} />
+        <ButtonElement setBegin={setBegin} begin={begin} seconds={seconds}>
+        </ButtonElement>
         <Mode thegameMode={gameMode} setGameMode={setGameMode} setScore={setScore} />
         <Score gameScore={score} />
       </div>

@@ -3,14 +3,16 @@ import { useState } from 'react';
 
 
 const singleCard = {
-    backgroundColor: 'gray',
+    backgroundColor: 'white',
     margin: '5px 5px 5px 5px',
     height: '140px',
     width: '100px',
-    paddingTop: '8px'
+    paddingTop: '8px',
+    boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)'
+
 };
 
-const Card = ({ icon, changeStatus, cardFlipped, id, comparisonValue, setAttemptCount, attempt, setScore }) => {
+const Card = ({ icon, changeStatus, front, cardFlipped, id, comparisonValue, setAttemptCount, attempt, setScore }) => {
 
     const updateComparisonValues = (comparisonValue) => {
         setAttemptCount({ ...attempt, attemptComparisonValues: [...attempt.attemptComparisonValues, comparisonValue] });
@@ -24,7 +26,7 @@ const Card = ({ icon, changeStatus, cardFlipped, id, comparisonValue, setAttempt
     return (
         <div style={singleCard} className="single-card" onClick={() => cardFlippp(id, comparisonValue)}>
 
-            {cardFlipped ? icon : null}
+            {cardFlipped ? icon : front}
 
         </div>
     );
