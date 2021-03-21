@@ -7,6 +7,7 @@ import ButtonElement from './Components/Button'
 import { useState, useEffect, useRef } from 'react';
 import { cardListEasy, cardListMed, cardListHard } from './cardslist';
 import { shuffle } from './Helper';
+import ResultsScreen from './Components/ResultsScreen';
 
 function App() {
 
@@ -32,8 +33,10 @@ function App() {
   const [attempt, setAttempt] = useState(attemptObject);
   const [maxScore, setMaxScore] = useState(0);
   const [score, setScore] = useState(0);
-  const [begin, setBegin] = useState(false);
-  const [seconds, setSeconds] = useState(10);
+  const [startButtonClick, setStartButtonClick] = useState(false);
+  const [seconds, setSeconds] = useState(8);
+  const [gameOutcome, setGameOutcome] = useState("neither");
+  const [restartButton, setRestartButton] = useState(false);
 
   const selectCardSet = (mode) => {
     if (mode === "easy") {
@@ -77,7 +80,8 @@ function App() {
       else {
         /* if 2nd attempt wrong */
         if (attempt.attemptComparisonValues[GetLastCardValue()] !== attempt.attemptComparisonValues[GetSecondLastCardValue()]) {
-          return console.log('gameover');
+          console.log('gameover');
+          return setGameOutcome(prevState => prevState = "lost");
         }
         /* if 2nd attempt [correct] AND wasn't final match - add 1 point to score */
         else if (attempt.attemptComparisonValues[GetLastCardValue()] === attempt.attemptComparisonValues[GetSecondLastCardValue()]
@@ -89,7 +93,8 @@ function App() {
         /* if 2nd attempt [correct] AND final match - add 1 point to score & say victory */
         else {
           setScore(prevState => prevState + 1);
-          return console.log('congratz you won');
+          console.log('congratz you won');
+          return setGameOutcome(prevState => prevState = "won")
         }
       }
     } else {
@@ -123,7 +128,7 @@ function App() {
     }
   }
   useEffect(() => {
-    if (begin) {
+    if (startButtonClick && seconds > 0) {
       let updatedList = selectCardSet(gameMode).map(item => {
         return { ...item, card_flipped: true };
       })
@@ -134,18 +139,18 @@ function App() {
       })
       selectCardUpdateMethod(gameMode, updatedList);
     }
-  }, [begin])
+  }, [seconds, startButtonClick])
 
   // handles the timer functionlity when the start button is clicked
   useEffect(() => {
     if (didMountRefTimeValues.current) {
-      if (seconds > 0) {
+      if (restartButton) {
+        return setSeconds(prevState => prevState * 0 + 8);
+      }
+      else if (seconds > 0) {
         setTimeout(() => {
           setSeconds(prevState => prevState - 1);
         }, 1000);
-      }
-      else if (seconds === 0 && begin == true) {
-        setBegin(!begin);
       }
       else {
         return;
@@ -154,7 +159,16 @@ function App() {
     else {
       didMountRefTimeValues.current = true;
     }
-  }, [seconds, begin])
+  }, [seconds, startButtonClick, restartButton])
+
+  useEffect(() => {
+    if (restartButton) {
+      setScore(prevState => prevState * 0);
+    }
+    else {
+      return
+    }
+  }, [restartButton])
 
 
   /*
@@ -168,10 +182,11 @@ function App() {
   return (
     <div className="App">
       <h1> Memory Game </h1>
+      <ResultsScreen gameOutcome={gameOutcome} />
       <div style={menuStyles}>
-        <ButtonElement setBegin={setBegin} begin={begin} seconds={seconds}>
+        <ButtonElement setStartButtonClick={setStartButtonClick} startButtonClick={startButtonClick} seconds={seconds} setSeconds={setSeconds} setRestartButton={setRestartButton} restartButton={setRestartButton}>
         </ButtonElement>
-        <Mode thegameMode={gameMode} setGameMode={setGameMode} setScore={setScore} />
+        <Mode thegameMode={gameMode} setGameMode={setGameMode} setScore={setScore} setSeconds={setSeconds} startButtonClick={startButtonClick} />
         <Score gameScore={score} />
       </div>
 

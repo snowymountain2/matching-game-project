@@ -10,8 +10,8 @@ const Score = ({ gameScore }) => {
 
     return (
         <div>
-            <h2 style={scoreTitle}>score</h2>
-            <p>{gameScore}</p>
+            <h2>{gameScore}</h2>
+            <h4 style={scoreTitle}>score</h4>
         </div>
     );
 };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Button from '@material-ui/core/Button';
 
-const ButtonElement = ({ setBegin, begin, seconds }) => {
+const ButtonElement = ({ setStartButtonClick, startButtonClick, seconds, setSeconds, setRestartButton, restartButton }) => {
 
     const scoreTitle = {
         marginTop: '5px',
@@ -9,13 +9,20 @@ const ButtonElement = ({ setBegin, begin, seconds }) => {
     };
 
     function showCardsTemporarily() {
-        setBegin(!begin);
+        setStartButtonClick(!startButtonClick);
+    }
+
+    function restartButton() {
+        setRestartButton(!restartButton);
     }
 
     return (
         <div>
-            <Button variant="contained" color="secondary" onClick={showCardsTemporarily}>
+            <Button variant="contained" disabled={startButtonClick ? true : false} color="secondary" onClick={showCardsTemporarily}>
                 Start
+            </Button>
+            <Button variant="contained" color="primary" onClick={restartButton}>
+                Restart
             </Button>
             <p>{seconds}</p>
         </div>
